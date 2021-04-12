@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.kettle</groupId>
+    <artifactId>kettlePDI</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.3-1102-jdbc4</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc -->
+        <dependency>
+            <groupId>org.apache.hive</groupId>
+            <artifactId>hive-jdbc</artifactId>
+            <version>0.13.1</version>
+        </dependency>
+
+        <!-- mysql驱动包 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.26</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.37</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>11.2.0.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>6.5.1.jre8-preview</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- mongoDb -->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+
+        <!-- Sybase -->
+        <dependency>
+            <groupId>net.sourceforge.jtds</groupId>
+            <artifactId>jtds</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--kettle dependency start-->
+        <dependency>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+            <version>2.9.1</version>
+        </dependency>
+        <dependency>
+            <groupId>pentaho-kettle</groupId>
+            <artifactId>kettle-core</artifactId>
+            <version>7.1.0.0-12</version>
+        </dependency>
+        <dependency>
+            <groupId>pentaho-kettle</groupId>
+            <artifactId>kettle-engine</artifactId>
+            <version>7.1.0.0-12</version>
+        </dependency>
+        <dependency>
+            <groupId>pentaho</groupId>
+            <artifactId>metastore</artifactId>
+            <version>7.1.0.0-12</version>
+        </dependency>
+        <dependency>
+            <groupId>pentaho</groupId>
+            <artifactId>pentaho-vfs-browser</artifactId>
+            <version>7.1.0.0-12</version>
+        </dependency>
+        <dependency>
+            <groupId>pentaho</groupId>
+            <artifactId>pentaho-mongodb-plugin</artifactId>
+            <version>7.1.0.0-12</version>
+        </dependency>
+        <dependency>
+            <groupId>pentaho</groupId>
+            <artifactId>pentaho-mongo-utils</artifactId>
+            <version>7.1.0.0-12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-vfs2</artifactId>
+            <version>2.1</version>
+        </dependency>
+    </dependencies>
+
+</project>
