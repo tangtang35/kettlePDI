@@ -1,0 +1,9 @@
+1、默认是批量处理吗？
+答：tableOutputMeta.setUseBatchUpdate(true);
+   tableOutputMeta.setCommitSize(5000);
+   可以设置批量提交和提交量。
+
+2、默认是kettle建表？
+答：需要手动建表。
+
+3、
