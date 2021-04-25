@@ -19,6 +19,7 @@ import org.pentaho.di.trans.step.*;
 import org.pentaho.metastore.api.IMetaStore;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * DataProcessMeta 类主要用来存储用户的配置数据
@@ -28,9 +29,32 @@ import java.util.List;
 public class DataProcessMeta extends BaseStepMeta implements StepMetaInterface {
 	//?
 	private static Class<?> PKG = DataProcessMeta.class;
+	//脱敏字段数组
 	private String[] fieldInStream;
 	private String[] fieldOutStream;
 	private DesenRule desenRule;
+
+	//添加脱敏字段,<字段名称，对应的算法>
+	private Map<String,String> fieldDataType;
+
+	//数据库类型
+	private String dbType;
+
+	public String getDbType() {
+		return dbType;
+	}
+
+	public void setDbType(String dbType) {
+		this.dbType = dbType;
+	}
+
+	public Map<String, String> getFieldDataType() {
+		return fieldDataType;
+	}
+
+	public void setFieldDataType(Map<String, String> fieldDataType) {
+		this.fieldDataType = fieldDataType;
+	}
 
 	public DesenRule getDesenRule() {
 		return desenRule;

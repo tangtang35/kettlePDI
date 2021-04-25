@@ -11,6 +11,8 @@ import org.pentaho.di.trans.Trans;
 import org.pentaho.di.trans.TransMeta;
 import org.pentaho.di.trans.step.*;
 
+import java.util.Map;
+
 /**
  * 自定义插件
  * @author Administrator
@@ -54,7 +56,7 @@ public class DataProcess extends BaseStep implements StepInterface {
 	        this.data.inStreamNrs = new int[this.data.numFields];
 	        this.data.outStreamNrs = new String[this.data.numFields];
 	        String[] fields = this.meta.getFieldInStream();
-	        System.out.println(fields);
+	        System.out.println("需要脱敏的字段名称："+fields.toString());
 	        for (int i = 0; i < this.data.numFields; i++) {
 	        	      this.data.inStreamNrs[i] = getInputRowMeta().indexOfValue(this.meta.getFieldInStream()[i]);
 	        	       if (this.data.inStreamNrs[i] < 0) {
@@ -65,20 +67,28 @@ public class DataProcess extends BaseStep implements StepInterface {
 	        
 	        for (int i = 0; i < this.data.numFields; i++) {
 	            this.data.outStreamNrs[i] = this.meta.getFieldOutStream()[i];
-	          //  System.out.println(this.meta.getFieldOutStream()[i]);
+	            System.out.println(this.meta.getFieldOutStream()[i]);
 	        }
 	        
 	    }
-	    
 	    int j =0;
 	    for (int i = 0; i < this.data.numFields; i++) {
-	    	Object beforValue = getValue(r, data.inStreamNrs[i],getInputRowMeta());//获得脱敏前的某个数据
-			/**
-			 * 判断是否是要脱敏字段
-			 **/
+	    	//数据库类型
+			String dbType = this.meta.getDbType();
+			//当前数据的字段名
+			String fieldName = this.data.outputRowMeta.getValueMeta(this.data.inStreamNrs[i]).getName();
+			//字段类型
+			int fieldType = this.data.outputRowMeta.getValueMeta(this.data.inStreamNrs[i]).getType();
+			//获得脱敏前的当前数据
+	    	Object beforValue = getValue(r, data.inStreamNrs[i],getInputRowMeta());
+	    	//脱敏的字段和算法
+			Map<String,String> fieldDataType = this.meta.getFieldDataType();
+			//算法
+			String str = fieldDataType.get(fieldName);
+			System.out.println("数据库类型："+dbType+"----字段名："+fieldName+"----字段类型："+fieldType+"------数据："+beforValue+"-----算法："+str);
 			Object afterValue = beforValue;
 			if (Utils.isEmpty(this.data.outStreamNrs[i])) {
-				r[this.data.inStreamNrs[i]] = afterValue; //设置脱敏后的值
+				r[this.data.inStreamNrs[i]] = "tcmeng"; //设置脱敏后的值
 				this.data.outputRowMeta.getValueMeta(this.data.inStreamNrs[i])
 						.setStorageType(0);
 			} else {
